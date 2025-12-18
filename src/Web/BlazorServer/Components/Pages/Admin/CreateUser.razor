@@ -1,0 +1,41 @@
+@page "/admin/users/create"
+@layout AdminLayout
+
+@using MediatR
+<!-- @using Admin.Application.Users.Create -->
+@using global::Admin.Application.Users.Create
+
+
+@inject IMediator Mediator
+
+<h3>Create User</h3>
+
+<div>
+    <input placeholder="Email" @bind="Email" />
+</div>
+<div>
+    <input placeholder="First Name" @bind="FirstName" />
+</div>
+<div>
+    <input placeholder="Last Name" @bind="LastName" />
+</div>
+
+<button @onclick="OnCreateUser">Create</button>
+
+@code {
+    private string Email = string.Empty;
+    private string FirstName = string.Empty;
+    private string LastName = string.Empty;
+
+    private async Task OnCreateUser()
+    {
+        var command = new CreateUserCommand(
+            Email,
+            FirstName,
+            LastName
+        );
+
+        await Mediator.Send(command);
+    }
+}
+

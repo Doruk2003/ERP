@@ -8,9 +8,9 @@ D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Application\obj\Debug\net8.0\Share
 D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Application\obj\Debug\net8.0\Shared.Application.AssemblyInfoInputs.cache
 D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Application\obj\Debug\net8.0\Shared.Application.AssemblyInfo.cs
 D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Application\obj\Debug\net8.0\Shared.Application.csproj.CoreCompileInputs.cache
+D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Application\obj\Debug\net8.0\Shared.Application.sourcelink.json
 D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Application\obj\Debug\net8.0\Shared.A.5A1F1DEE.Up2Date
 D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Application\obj\Debug\net8.0\Shared.Application.dll
 D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Application\obj\Debug\net8.0\refint\Shared.Application.dll
 D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Application\obj\Debug\net8.0\Shared.Application.pdb
 D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Application\obj\Debug\net8.0\ref\Shared.Application.dll
-D:\Projects\Net\erp\src\BuildingBlocks\Shared.Application\obj\Debug\net8.0\Shared.Application.sourcelink.json

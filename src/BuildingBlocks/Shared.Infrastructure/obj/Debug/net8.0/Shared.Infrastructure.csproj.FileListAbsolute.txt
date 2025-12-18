@@ -10,9 +10,9 @@ D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Infrastructure\obj\Debug\net8.0\Sh
 D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Infrastructure\obj\Debug\net8.0\Shared.Infrastructure.AssemblyInfoInputs.cache
 D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Infrastructure\obj\Debug\net8.0\Shared.Infrastructure.AssemblyInfo.cs
 D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Infrastructure\obj\Debug\net8.0\Shared.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Infrastructure\obj\Debug\net8.0\Shared.Infrastructure.sourcelink.json
 D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Infrastructure\obj\Debug\net8.0\Shared.I.E63B7492.Up2Date
 D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Infrastructure\obj\Debug\net8.0\Shared.Infrastructure.dll
 D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Infrastructure\obj\Debug\net8.0\refint\Shared.Infrastructure.dll
 D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Infrastructure\obj\Debug\net8.0\Shared.Infrastructure.pdb
 D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Infrastructure\obj\Debug\net8.0\ref\Shared.Infrastructure.dll
-D:\Projects\Net\erp\src\BuildingBlocks\Shared.Infrastructure\obj\Debug\net8.0\Shared.Infrastructure.sourcelink.json
