@@ -1,7 +1,5 @@
 using MongoDB.Driver;
-using Shared.Application.Abstractions;
 using Shared.Domain.Common;
-using Shared.Infrastructure.Mongo;
 
 namespace Shared.Infrastructure.Repositories;
 
@@ -9,46 +7,52 @@ public abstract class MongoRepository<T>
     where T : AuditableEntity
 {
     protected readonly IMongoCollection<T> Collection;
-    private readonly IDomainEventDispatcher _domainEventDispatcher;
 
-    protected MongoRepository(
-        MongoContext context,
-        IDomainEventDispatcher domainEventDispatcher,
-        string moduleName
-    )
+    protected MongoRepository(IMongoDatabase database, string collectionName)
     {
-        _domainEventDispatcher = domainEventDispatcher;
-        Collection = context.GetCollection<T>(moduleName);
+        Collection = database.GetCollection<T>(collectionName);
     }
 
-    protected async Task InsertAsync(T entity, CancellationToken cancellationToken = default)
+    public virtual async Task AddAsync(T entity, CancellationToken cancellationToken = default)
     {
         await Collection.InsertOneAsync(entity, cancellationToken: cancellationToken);
-        await DispatchDomainEventsAsync(entity, cancellationToken);
     }
 
-    protected async Task ReplaceAsync(T entity, CancellationToken cancellationToken = default)
+    public virtual async Task UpdateAsync(
+        FilterDefinition<T> filter,
+        T entity,
+        CancellationToken cancellationToken = default)
     {
         await Collection.ReplaceOneAsync(
-            x => x.Id == entity.Id,
+            filter,
             entity,
-            cancellationToken: cancellationToken
-        );
-
-        await DispatchDomainEventsAsync(entity, cancellationToken);
+            new ReplaceOptions { IsUpsert = false },
+            cancellationToken);
     }
 
-    protected IQueryable<T> Query()
+    public virtual async Task SoftDeleteAsync(
+        FilterDefinition<T> filter,
+        CancellationToken cancellationToken = default)
     {
-        return Collection.AsQueryable().Where(x => !x.IsDeleted);
+        var update = Builders<T>.Update.Set(x => x.IsDeleted, true);
+        await Collection.UpdateOneAsync(filter, update, cancellationToken: cancellationToken);
     }
 
-    private async Task DispatchDomainEventsAsync(T entity, CancellationToken cancellationToken)
+    public virtual async Task<T?> GetAsync(
+        FilterDefinition<T> filter,
+        CancellationToken cancellationToken = default)
     {
-        if (!entity.DomainEvents.Any())
-            return;
+        return await Collection
+            .Find(filter)
+            .FirstOrDefaultAsync(cancellationToken);
+    }
 
-        await _domainEventDispatcher.DispatchAsync(entity.DomainEvents, cancellationToken);
-        entity.ClearDomainEvents();
+    public virtual async Task<IReadOnlyList<T>> GetListAsync(
+        FilterDefinition<T> filter,
+        CancellationToken cancellationToken = default)
+    {
+        return await Collection
+            .Find(filter)
+            .ToListAsync(cancellationToken);
     }
 }

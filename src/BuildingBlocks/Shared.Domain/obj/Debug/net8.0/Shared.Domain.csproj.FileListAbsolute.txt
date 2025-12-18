@@ -9,3 +9,4 @@ D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Domain\obj\Debug\net8.0\Shared.Dom
 D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Domain\obj\Debug\net8.0\refint\Shared.Domain.dll
 D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Domain\obj\Debug\net8.0\Shared.Domain.pdb
 D:\Projects\Net\ERP\src\BuildingBlocks\Shared.Domain\obj\Debug\net8.0\ref\Shared.Domain.dll
+D:\Projects\Net\erp\src\BuildingBlocks\Shared.Domain\obj\Debug\net8.0\Shared.Domain.sourcelink.json
