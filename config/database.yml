@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: aws-1-eu-central-1.pooler.supabase.com
+  port: 6543
+  database: postgres
+  username: postgres.gihpaszqmctmeigqbsuo
+  password: <%= ENV.fetch("SUPABASE_DB_PASSWORD") %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  sslmode: require
+  prepared_statements: false
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
