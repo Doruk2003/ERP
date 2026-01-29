@@ -1,0 +1,30 @@
+<h2>Teklifler</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Teklif Numarası</th>
+      <th>Şirket</th>
+      <th>Para Birimi</th>
+      <th>Toplam</th>
+      <th>İşlemler</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @offers.each do |offer| %>
+      <tr>
+        <td><%= offer.offer_number %></td>
+        <td><%= offer.company.name %></td>
+        <td><%= offer.currency %></td>
+        <td><%= number_to_currency(offer.net_total, unit: offer.currency) %></td>
+        <td>
+          <%= link_to 'Görüntüle', offer, class: 'btn btn-sm btn-outline-secondary' %>
+          <%= link_to 'Düzenle', edit_offer_path(offer), class: 'btn btn-sm btn-outline-primary' %>
+          <%= link_to 'Sil', offer, method: :delete, confirm: 'Silmek istediğinizden emin misiniz?', class: 'btn btn-sm btn-outline-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Yeni Teklif', new_offer_path, class: 'btn btn-primary' %>

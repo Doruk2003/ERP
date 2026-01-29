@@ -1,0 +1,44 @@
+<%= form_with(model: offer, local: true, html: { class: "needs-validation" }) do |form| %>
+  <% if offer.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(offer.errors.count, "error") %> prohibited this offer from being saved:</h4>
+      <ul>
+        <% offer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <%= form.label :offer_number, class: "form-label" %>
+      <%= form.text_field :offer_number, class: "form-control", placeholder: "Teklif Numarası" %>
+    </div>
+    <div class="col-md-6 mb-3">
+      <%= form.label :currency, class: "form-label" %>
+      <%= form.select :currency, ['TRY', 'USD', 'EUR'], {}, { class: "form-select" } %>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :company_id, "Şirket", class: "form-label" %>
+    <%= form.collection_select :company_id, Company.all, :id, :name, { prompt: "Seçiniz" }, { class: "form-select" } %>
+  </div>
+
+  <h4>Kalemler</h4>
+  <div id="offer_items" data-controller="nested-form" class="border p-3 rounded">
+    <%= form.fields_for :offer_items do |item_form| %>
+      <%= render 'offer_item_fields', f: item_form %>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= link_to_add_fields "Kalem Ekle", form, :offer_items, class: "btn btn-success w-100", data: { action: "click->nested-form#addField" } %>
+  </div>
+
+  <div class="d-flex justify-content-between mt-3">
+    <%= form.submit "Teklifi Oluştur", class: "btn btn-primary w-100 me-2" %>
+    <%= link_to 'Geri Dön', offers_path, class: 'btn btn-secondary w-100' %>
+  </div>
+<% end %>

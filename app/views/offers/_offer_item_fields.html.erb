@@ -1,0 +1,16 @@
+<div class="nested-fields border p-3 mb-2 rounded" data-controller="nested-form">
+  <div class="row">
+    <div class="col-md-5 mb-2">
+      <%= f.collection_select :product_id, Product.all, :id, :name, { prompt: "Ürün Seçin" }, { class: "form-select" } %>
+    </div>
+    <div class="col-md-3 mb-2">
+      <%= f.number_field :quantity, placeholder: "Adet", class: "form-control" %>
+    </div>
+    <div class="col-md-3 mb-2">
+      <%= f.number_field :unit_price, placeholder: "Birim Fiyat", class: "form-control" %>
+    </div>
+    <div class="col-md-1 d-flex align-items-center">
+      <%= link_to_remove_fields "Kaldır", f, class: "btn btn-sm btn-outline-danger", data: { action: "click->nested-form#removeField" } %>
+    </div>
+  </div>
+</div>
